@@ -9,7 +9,7 @@ use Filament\Resources\Pages\ListRecords;
 class ListInProgressOrders extends ListRecords
 {
   protected static string $resource = InProgressOrderResource::class;
-
+  protected static ?string $title = 'Danh sách đơn hàng';
   protected function getHeaderActions(): array
   {
     return [

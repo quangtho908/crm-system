@@ -71,8 +71,7 @@ class DoneOrderForm
           ->label("Phí cuộc thi")
           ->required()
           ->numeric()
-          ->default(0.0)
-          ->prefix('$'),
+          ->default(0),
         TextInput::make('total')
           ->label("Tiền đã thanh toán")
           ->required()

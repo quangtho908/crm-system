@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DoneOrders\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -14,6 +15,8 @@ class DoneOrdersTable
   {
     return $table
       ->columns([
+        TextColumn::make('order_id')
+          ->label('Mã đơn hàng'),
         TextColumn::make('email')
           ->label('Email')
           ->searchable(),
@@ -48,6 +51,7 @@ class DoneOrdersTable
       ])
       ->recordActions([
         EditAction::make(),
+        ViewAction::make()
       ])
       ->toolbarActions([
         BulkActionGroup::make([

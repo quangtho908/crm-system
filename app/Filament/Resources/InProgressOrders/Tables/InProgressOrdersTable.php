@@ -5,48 +5,57 @@ namespace App\Filament\Resources\InProgressOrders\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class InProgressOrdersTable
 {
-    public static function configure(Table $table): Table
-    {
-        return $table
-            ->columns([
-                TextColumn::make('order_id')
-                    ->label('Order id'),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
-                TextColumn::make('full_name')
-                    ->searchable(),
-                TextColumn::make('product_name')
-                    ->searchable(),
-                TextColumn::make('phone')
-                    ->searchable(),
-                TextColumn::make('grade')
-                    ->searchable(),
-                TextColumn::make('parents_name')
-                    ->searchable(),
-                TextColumn::make('total')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                //
-            ])
-            ->recordActions([
-                EditAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
+  public static function configure(Table $table): Table
+  {
+    return $table
+      ->columns([
+        TextColumn::make('order_id')
+          ->label('Mã đơn hàng'),
+        TextColumn::make('email')
+          ->label('Email')
+          ->searchable(),
+        TextColumn::make('full_name')
+          ->label("Họ tên")
+          ->searchable(),
+        TextColumn::make('product_name')
+          ->label("Cuộc thi - gói")
+          ->searchable(),
+        TextColumn::make('phone')
+          ->label("Số điện thoại")
+          ->searchable(),
+        TextColumn::make('grade')
+          ->label("Khối lớp")
+          ->searchable(),
+        TextColumn::make('parents_name')
+          ->label("Họ tên phụ huynh")
+          ->searchable(),
+        TextColumn::make('total')
+          ->label("Tiền đã thanh toán")
+          ->numeric()
+          ->sortable(),
+        TextColumn::make('created_at')
+          ->label("Ngày nhập")
+          ->dateTime()
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
+      ])
+      ->filters([
+        //
+      ])
+      ->recordActions([
+        EditAction::make(),
+        ViewAction::make()
+      ])
+      ->toolbarActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+        ]),
+      ]);
+  }
 }
