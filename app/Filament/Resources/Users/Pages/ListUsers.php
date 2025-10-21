@@ -8,12 +8,14 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListUsers extends ListRecords
 {
-    protected static string $resource = UserResource::class;
+  protected static string $resource = UserResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
+  protected static ?string $title = 'Danh sách người dùng';
+  protected function getHeaderActions(): array
+  {
+    return [
+      CreateAction::make()
+        ->label("Tạo mới người dùng"),
+    ];
+  }
 }

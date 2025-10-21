@@ -8,12 +8,13 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListInProgressOrders extends ListRecords
 {
-    protected static string $resource = InProgressOrderResource::class;
+  protected static string $resource = InProgressOrderResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [
+      CreateAction::make()
+        ->label("Tạo mới đơn hàng"),
+    ];
+  }
 }

@@ -7,5 +7,6 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateDoneOrder extends CreateRecord
 {
-    protected static string $resource = DoneOrderResource::class;
+  protected static ?string $title = 'Tạo đơn hàng mới';
+  protected static string $resource = DoneOrderResource::class;
 }

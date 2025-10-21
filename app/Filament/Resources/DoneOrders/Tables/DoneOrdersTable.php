@@ -15,33 +15,33 @@ class DoneOrdersTable
     return $table
       ->columns([
         TextColumn::make('email')
-          ->label('Email address')
+          ->label('Email')
           ->searchable(),
         TextColumn::make('full_name')
+          ->label("Họ tên")
           ->searchable(),
         TextColumn::make('phone')
+          ->label("Số điện thoại")
           ->searchable(),
         TextColumn::make('grade')
+          ->label("Khối lớp")
           ->searchable(),
         TextColumn::make('class')
+          ->label("Lớp học")
           ->searchable(),
         TextColumn::make('parents_name')
+          ->label("Họ tên phụ huynh")
           ->searchable(),
         TextColumn::make('total')
+          ->label("Tiền đã thanh toán")
           ->numeric()
           ->sortable(),
         TextColumn::make('transaction_date')
-          ->searchable(),
-        TextColumn::make('account_number')
-          ->searchable(),
-        TextColumn::make('bank')
+          ->label('Ngày thanh toán')
           ->searchable(),
         TextColumn::make('content')
-          ->searchable(),
-        TextColumn::make('created_at')
-          ->dateTime()
-          ->sortable()
-          ->toggleable(isToggledHiddenByDefault: true),
+          ->label('Nội dung thanh toán')
+          ->searchable()
       ])
       ->filters([
         //

@@ -16,35 +16,36 @@ use Filament\Tables\Table;
 
 class InProgressOrderResource extends Resource
 {
-    protected static ?string $model = InProgressOrder::class;
+  protected static ?string $model = InProgressOrder::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+  protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClock;
 
-    protected static ?string $recordTitleAttribute = 'In Progress Order';
+  protected static ?string $recordTitleAttribute = 'In Progress Order';
+  protected static ?string $navigationLabel = "Đơn hàng đang chờ xử lý";
 
-    public static function form(Schema $schema): Schema
-    {
-        return InProgressOrderForm::configure($schema);
-    }
+  public static function form(Schema $schema): Schema
+  {
+    return InProgressOrderForm::configure($schema);
+  }
 
-    public static function table(Table $table): Table
-    {
-        return InProgressOrdersTable::configure($table);
-    }
+  public static function table(Table $table): Table
+  {
+    return InProgressOrdersTable::configure($table);
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  public static function getRelations(): array
+  {
+    return [
+      //
+    ];
+  }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListInProgressOrders::route('/'),
-            'create' => CreateInProgressOrder::route('/create'),
-            'edit' => EditInProgressOrder::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => ListInProgressOrders::route('/'),
+      'create' => CreateInProgressOrder::route('/create'),
+      'edit' => EditInProgressOrder::route('/{record}/edit'),
+    ];
+  }
 }

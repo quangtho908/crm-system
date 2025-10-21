@@ -16,35 +16,36 @@ use Filament\Tables\Table;
 
 class DoneOrderResource extends Resource
 {
-    protected static ?string $model = DoneOrder::class;
+  protected static ?string $model = DoneOrder::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+  protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCheckCircle;
 
-    protected static ?string $recordTitleAttribute = 'Done Order';
+  protected static ?string $recordTitleAttribute = 'Done Order';
+  protected static ?string $navigationLabel = "Đơn hàng đã thanh toán";
 
-    public static function form(Schema $schema): Schema
-    {
-        return DoneOrderForm::configure($schema);
-    }
+  public static function form(Schema $schema): Schema
+  {
+    return DoneOrderForm::configure($schema);
+  }
 
-    public static function table(Table $table): Table
-    {
-        return DoneOrdersTable::configure($table);
-    }
+  public static function table(Table $table): Table
+  {
+    return DoneOrdersTable::configure($table);
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  public static function getRelations(): array
+  {
+    return [
+      //
+    ];
+  }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListDoneOrders::route('/'),
-            'create' => CreateDoneOrder::route('/create'),
-            'edit' => EditDoneOrder::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => ListDoneOrders::route('/'),
+      'create' => CreateDoneOrder::route('/create'),
+      'edit' => EditDoneOrder::route('/{record}/edit'),
+    ];
+  }
 }
