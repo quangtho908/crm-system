@@ -20,7 +20,6 @@ class InProgressOrderResource extends Resource
 
   protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClock;
 
-  protected static ?string $recordTitleAttribute = 'In Progress Order';
   protected static ?string $navigationLabel = "Đơn hàng đang chờ xử lý";
 
   public static function form(Schema $schema): Schema

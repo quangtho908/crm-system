@@ -20,7 +20,6 @@ class DoneOrderResource extends Resource
 
   protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCheckCircle;
 
-  protected static ?string $recordTitleAttribute = 'Done Order';
   protected static ?string $navigationLabel = "Đơn hàng đã thanh toán";
 
   public static function form(Schema $schema): Schema
