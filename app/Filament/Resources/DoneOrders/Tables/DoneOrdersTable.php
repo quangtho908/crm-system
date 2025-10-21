@@ -32,7 +32,7 @@ class DoneOrdersTable
           ->sortable(),
         TextColumn::make('transaction_date')
           ->searchable(),
-        TextColumn::make('accountNumber')
+        TextColumn::make('account_number')
           ->searchable(),
         TextColumn::make('bank')
           ->searchable(),
