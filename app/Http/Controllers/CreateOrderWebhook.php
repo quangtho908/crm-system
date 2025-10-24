@@ -42,7 +42,7 @@ class CreateOrderWebhook extends Controller
 
       // ✅ Lưu order vào database
       InProgressOrder::create([
-        'order_id' => $orderId,
+        'order_id'      => "" . $orderId,
         'email'         => $order['customer_email'] ?? null,
         'full_name'     => $order['customer_first_name'] ?? null,
         'phone'         => $order['customer_phone'] ?? null,
