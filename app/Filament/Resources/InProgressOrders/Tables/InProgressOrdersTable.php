@@ -20,6 +20,7 @@ class InProgressOrdersTable
       ->headerActions([
         ExportAction::make()
           ->label('Xuất dữ liệu')
+          ->fileDisk('public')
           ->exporter(InProgressOrderExporter::class),
       ])
       ->columns([

@@ -70,8 +70,8 @@ class PaymentOrderWebhook extends Controller
         'total'            => $order['total'] ?? 0,
         'note'             => $order['note'] ?? null,
         'bank'             => $order['payment_callback_params']['gateway'] ?? "",
-        "transaction_date" => $order['payment_callback_params']['transactionDate'] ?? null,
-        "account_number"   => $order['payment_callback_params']['accountNumber'] ?? null,
+        "transaction_date" => $order['payment_callback_params']['transaction_date'] ?? null,
+        "account_number"   => $order['payment_callback_params']['account_number'] ?? null,
         "content"          => $order['payment_callback_params']['content']
       ]);
 
