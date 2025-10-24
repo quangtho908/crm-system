@@ -36,7 +36,7 @@ class PaymentOrderWebhook extends Controller
         throw new Exception('Thiếu thông tin');
       }
 
-      $orderId = $order['creator_id'];
+      $orderId = $order['order_id'];
 
       if (empty($orderId)) {
         throw new Exception('Thiếu order_id (creator_id) trong payload, không thể lưu InProgressOrder');
