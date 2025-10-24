@@ -2,9 +2,12 @@
 
 namespace App\Filament\Resources\DoneOrders\Tables;
 
+use App\Filament\Exports\DoneOrderExporter;
+use App\Models\DoneOrder;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ExportAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -14,6 +17,11 @@ class DoneOrdersTable
   public static function configure(Table $table): Table
   {
     return $table
+      ->headerActions([
+        ExportAction::make()
+          ->label('Xuất dữ liệu')
+          ->exporter(DoneOrderExporter::class),
+      ])
       ->columns([
         TextColumn::make('order_id')
           ->label('Mã đơn hàng'),
