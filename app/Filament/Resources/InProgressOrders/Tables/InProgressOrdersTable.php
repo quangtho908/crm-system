@@ -2,18 +2,26 @@
 
 namespace App\Filament\Resources\InProgressOrders\Tables;
 
+use App\Filament\Exports\InProgressOrderExporter;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ExportAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+// use App\Filament\Exports\ProductExporter;
 
 class InProgressOrdersTable
 {
   public static function configure(Table $table): Table
   {
     return $table
+      ->headerActions([
+        ExportAction::make()
+          ->label('Xuất dữ liệu')
+          ->exporter(InProgressOrderExporter::class),
+      ])
       ->columns([
         TextColumn::make('order_id')
           ->label('Mã đơn hàng'),
